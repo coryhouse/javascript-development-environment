@@ -1,13 +1,10 @@
 import {calculateSavings} from './utils/fuelSavingsCalculator';
 
-function getById(id) {
-  return global.document.getElementById(id);
-}
-
-const newMpg = getById('new-mpg');
-const tradeMpg = getById('trade-mpg');
+const newMpg = getById('newmpg');
+const tradeMpg = getById('tradempg');
 const ppg = getById('ppg');
-const milesDriven = getById('miles-driven');
+const milesDriven = getById('milesdriven');
+const resultTd = getById('result');
 
 const settings = {
   newMpg: newMpg.value,
@@ -16,30 +13,35 @@ const settings = {
   milesDriven: milesDriven.value
 };
 
-newMpg.onchange = (e) => {
+newMpg.onkeyup = (e) => {
   settings.newMpg = e.srcElement.value;
-  calculateSavings(settings);
+  displayResults(settings);
 };
 
-tradeMpg.onchange = (e) => {
+tradeMpg.onkeyup = (e) => {
   settings.tradeMpg = e.srcElement.value;
-  calculateSavings(settings);
+  displayResults(settings);
 };
 
-ppg.onchange = (e) => {
+ppg.onkeyup = (e) => {
   settings.ppg = e.srcElement.value;
-  calculateSavings(settings);
+  displayResults(settings);
 };
 
-milesDriven.onchange = (e) => {
+milesDriven.onkeyup = (e) => {
   settings.milesDriven = e.srcElement.value;
-  calculateSavings(settings);
+  displayResults(settings);
 };
 
-// let inputs = document.getElementsByTagName('input');
-// inputs.map(function(input) {
-//   input.addEventListener("change", function() {
-//     alert('hi');
-//   });
-// });
+function getById(id) {
+  return global.document.getElementById(id);
+}
 
+function displayResults(settings) {
+  let savingsOrLoss = calculateSavings(settings);
+  if (savingsOrLoss) {
+    resultTd.innerHTML = savingsOrLoss + ' per month';
+  } else {
+    resultTd.innerHTML = '';
+  }
+}
