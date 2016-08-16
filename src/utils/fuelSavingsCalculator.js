@@ -17,7 +17,7 @@ export function calculateSavingsPerMonth(settings) {
     return 0;
   }
 
-  const milesDrivenPerMonth = this.calculateMilesDrivenPerMonth(settings.milesDriven, settings.milesDrivenTimeframe);
+  const milesDrivenPerMonth = calculateMilesDrivenPerMonth(settings.milesDriven, settings.milesDrivenTimeframe);
   const tradeFuelCostPerMonth = calculateMonthlyCost(milesDrivenPerMonth, settings.ppg, settings.tradeMpg);
   const newFuelCostPerMonth = calculateMonthlyCost(milesDrivenPerMonth, settings.ppg, settings.newMpg);
   const savingsPerMonth = tradeFuelCostPerMonth - newFuelCostPerMonth;
@@ -37,12 +37,5 @@ export function calculateSavings(settings) {
     return;
   }
 
-  debugger;
-  const monthlySavings = this.calculateSavingsPerMonth(settings);
-
-  return {
-    monthly: NumberFormatter.getCurrencyFormattedNumber(monthlySavings),
-    annual: NumberFormatter.getCurrencyFormattedNumber(monthlySavings * 12),
-    threeYear: NumberFormatter.getCurrencyFormattedNumber(monthlySavings * 12 * 3)
-  };
+  return calculateSavingsPerMonth(settings);
 }
