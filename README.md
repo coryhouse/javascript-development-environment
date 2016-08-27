@@ -23,16 +23,13 @@ This will run the automated build process, start up a webserver, and open the ap
 |babel-cli|Babel Command line interface |
 |babel-core|Babel Core for transpiling the new JavaScript to old |
 |babel-loader|Adds Babel support to Webpack |
-|babel-preset-es2015|Babel preset for ES2015|
+|babel-preset-latest|Babel preset for running all the latest standardized JavaScript features|
 |babel-register|Register Babel to transpile our Mocha tests|
 |cheerio|Supports querying DOM with jQuery like syntax - Useful in testing and build process for HTML manipulation|
-|compression|Add gzip support to Express|
 |cross-env|Cross-environment friendly way to handle environment variables|
 |css-loader|Add CSS support to Webpack|
-|enzyme|Simplified JavaScript Testing utilities for React|
 |eslint|Lints JavaScript |
 |eslint-plugin-import|Advanced linting of ES6 imports|
-|eslint-plugin-react|Adds additional React-related rules to ESLint|
 |eslint-watch|Add watch functionality to ESLint |
 |eventsource-polyfill|Polyfill to support hot reloading in IE|
 |expect|Assertion library for use with Mocha|
