@@ -1,6 +1,6 @@
-#Starter Kit 
+#JavaScript Development Environment
 
-Generic JavaScript development environment. This isn't tied to any specific JS framework.
+This is a generic JavaScript development environment. This isn't tied to any specific JS framework.
 
 ## Get Started
 1. **Install [Node 6](https://nodejs.org)**. Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows)
