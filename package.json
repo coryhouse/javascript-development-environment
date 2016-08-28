@@ -4,7 +4,7 @@
   "description": "JavaScript development environment Pluralsight course by Cory House",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel test:watch open:src lint:watch",
+    "start": "npm-run-all --parallel security-check test:watch open:src lint:watch",
     "open:src": "babel-node buildScripts/srcServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
@@ -15,7 +15,9 @@
     "build:html": "babel-node buildScripts/buildHtml.js",
     "prebuild": "npm-run-all clean-dist test lint build:html",
     "build": "babel-node buildScripts/build.js",
-    "postbuild": "babel-node buildScripts/distServer.js"
+    "postbuild": "babel-node buildScripts/distServer.js",
+    "security-check": "nsp check",
+    "deploy": "firebase deploy"
   },
   "author": "Cory House",
   "license": "MIT",
@@ -37,10 +39,12 @@
     "eslint-watch": "2.1.14",
     "expect": "1.20.2",
     "express": "4.14.0",
+    "html-webpack-plugin": "2.22.0",
     "jsdom": "9.4.2",
     "mocha": "3.0.2",
     "nock": "8.0.0",
     "npm-run-all": "3.0.0",
+    "nsp": "2.6.1",
     "numeral": "1.5.3",
     "open": "0.0.5",
     "rimraf": "2.5.4",
