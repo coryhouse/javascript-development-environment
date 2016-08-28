@@ -40,6 +40,7 @@
     "mocha": "3.0.2",
     "nock": "8.0.0",
     "npm-run-all": "3.0.0",
+    "numeral": "1.5.3",
     "open": "0.0.5",
     "rimraf": "2.5.4",
     "webpack": "1.13.2",
