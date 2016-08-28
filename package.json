@@ -6,7 +6,7 @@
     "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
     "open:src": "babel-node buildScripts/srcServer.js",
-    "lint": "node_modules/.bin/esw webpack.config.* src buildScripts",
+    "lint": "node_modules/.bin/esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch",
@@ -49,10 +49,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/coryhouse/pluralsight-redux-starter"
-  },
-  "babel": {
-    "presets": [
-      "latest"
-    ]
   }
 }
