@@ -17,7 +17,7 @@
     "build": "babel-node buildScripts/build.js",
     "postbuild": "babel-node buildScripts/distServer.js",
     "security-check": "nsp check",
-    "deploy": "firebase deploy"
+    "deploy": "surge ./dist --domain fuelcalc.surge.sh"
   },
   "author": "Cory House",
   "license": "MIT",
