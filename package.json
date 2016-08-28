@@ -50,7 +50,8 @@
     "rimraf": "2.5.4",
     "webpack": "1.13.2",
     "webpack-dev-middleware": "1.6.1",
-    "webpack-hot-middleware": "2.12.2"
+    "webpack-hot-middleware": "2.12.2",
+    "webpack-md5-hash": "0.0.5"
   },
   "repository": {
     "type": "git",
