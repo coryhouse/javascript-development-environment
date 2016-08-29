@@ -13,7 +13,6 @@ export function calculateSavingsPerMonth(settings) {
   const tradeFuelCostPerMonth = calculateMonthlyCost(settings.milesDrivenPerMonth, settings.ppg, settings.tradeMpg);
   const newFuelCostPerMonth = calculateMonthlyCost(settings.milesDrivenPerMonth, settings.ppg, settings.newMpg);
   const savingsPerMonth = tradeFuelCostPerMonth - newFuelCostPerMonth;
-
   return numeral(savingsPerMonth).format('$0.00');
 }
 
