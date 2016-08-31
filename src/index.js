@@ -20,9 +20,9 @@ const inputs = [
   milesDrivenPerMonth
 ];
 
-inputs.map(field => {
-  field.onkeyup = e => {
-    settings[field.id] = e.srcElement.value;
+inputs.map(input => {
+  input.onkeyup = e => {
+    settings[input.id] = e.srcElement.value;
     displayResults(settings);
   }
 });
@@ -33,6 +33,5 @@ function getById(id) {
 
 function displayResults(settings) {
   const savingsOrLoss = calculateSavings(settings);
-  const result = savingsOrLoss ? savingsOrLoss + ' per month' : '';
-  resultTd.innerHTML = result;
+  resultTd.innerHTML = savingsOrLoss ? savingsOrLoss + ' per month' : '';
 }
