@@ -6,12 +6,12 @@ export default {
   devtool: 'cheap-module-eval-source-map',
   noInfo: false,
   entry: [
-    'webpack-hot-middleware/client?reload=true', // Enable hot reloading and reload the page if hot module reloading fails.
+    'webpack-hot-middleware/client?reload=true', // Enable hot reloading
     './src/index'
   ],
   target: 'web',
   output: {
-    path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
+    path: __dirname + '/src', // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/',
     filename: 'bundle.js'
   },
