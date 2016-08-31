@@ -6,12 +6,12 @@
     "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel security-check test:watch open:src lint:watch",
     "open:src": "babel-node buildScripts/srcServer.js",
-    "lint": "node_modules/.bin/esw webpack.config.* src buildScripts --color",
+    "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch",
     "clean-dist": "npm run remove-dist && mkdir dist",
-    "remove-dist": "node_modules/.bin/rimraf ./dist",
+    "remove-dist": "rimraf ./dist",
     "build:html": "babel-node buildScripts/buildHtml.js",
     "prebuild": "npm-run-all clean-dist test lint build:html",
     "build": "babel-node buildScripts/build.js",
@@ -22,7 +22,8 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
-    "babel-polyfill": "6.13.0"
+    "babel-polyfill": "6.13.0",
+    "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
     "babel-cli": "6.14.0",

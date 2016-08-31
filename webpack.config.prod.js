@@ -6,7 +6,10 @@ export default {
   debug: true,
   devtool: 'source-map',
   noInfo: false,
-  entry: './src/index',
+  entry: {
+    vendor: './src/vendor.js',
+    main: './src/index'
+  },
   target: 'web',
   output: {
     path: __dirname + '/dist',
