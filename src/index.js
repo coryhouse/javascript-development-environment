@@ -1,9 +1,9 @@
 import {calculateSavings} from './utils/fuelSavingsCalculator';
 
-const newMpg = getById('newmpg');
-const tradeMpg = getById('tradempg');
+const newMpg = getById('newMpg');
+const tradeMpg = getById('tradeMpg');
 const ppg = getById('ppg');
-const milesDrivenPerMonth = getById('milesdrivenpermonth');
+const milesDrivenPerMonth = getById('milesDrivenPerMonth');
 const resultTd = getById('result');
 
 const settings = {
@@ -13,35 +13,26 @@ const settings = {
   milesDrivenPerMonth: milesDrivenPerMonth.value
 };
 
-newMpg.onkeyup = (e) => {
-  settings.newMpg = e.srcElement.value;
-  displayResults(settings);
-};
+const inputs = [
+  newMpg,
+  tradeMpg,
+  ppg,
+  milesDrivenPerMonth
+];
 
-tradeMpg.onkeyup = (e) => {
-  settings.tradeMpg = e.srcElement.value;
-  displayResults(settings);
-};
-
-ppg.onkeyup = (e) => {
-  settings.ppg = e.srcElement.value;
-  displayResults(settings);
-};
-
-milesDrivenPerMonth.onkeyup = (e) => {
-  settings.milesDrivenPerMonth = e.srcElement.value;
-  displayResults(settings);
-};
+inputs.map(field => {
+  field.onkeyup = e => {
+    settings[field.id] = e.srcElement.value;
+    displayResults(settings);
+  }
+});
 
 function getById(id) {
   return global.document.getElementById(id);
 }
 
 function displayResults(settings) {
-  let savingsOrLoss = calculateSavings(settings);
-  if (savingsOrLoss) {
-    resultTd.innerHTML = savingsOrLoss + ' per month';
-  } else {
-    resultTd.innerHTML = '';
-  }
+  const savingsOrLoss = calculateSavings(settings);
+  const result = savingsOrLoss ? savingsOrLoss + ' per month' : '';
+  resultTd.innerHTML = result;
 }
