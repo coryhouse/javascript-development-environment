@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   debug: true,
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-source-map',
   noInfo: false,
   entry: [
     'webpack-hot-middleware/client?reload=true', // Enable hot reloading
