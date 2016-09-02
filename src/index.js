@@ -6,7 +6,7 @@ const ppg = getById('ppg');
 const milesDrivenPerMonth = getById('milesDrivenPerMonth');
 const resultTd = getById('result');
 
-const settings = {
+const inputValues = {
   newMpg: newMpg.value,
   tradeMpg: tradeMpg.value,
   ppg: ppg.value,
@@ -22,8 +22,8 @@ const inputs = [
 
 inputs.map(input => {
   input.onkeyup = e => {
-    settings[input.id] = e.srcElement.value;
-    displayResults(settings);
+    inputValues[input.id] = e.srcElement.value;
+    displayResults(inputValues);
   }
 });
 
@@ -31,7 +31,7 @@ function getById(id) {
   return global.document.getElementById(id);
 }
 
-function displayResults(settings) {
-  const savingsOrLoss = calculateSavings(settings);
+function displayResults(inputValues) {
+  const savingsOrLoss = calculateSavings(inputValues);
   resultTd.innerHTML = savingsOrLoss ? savingsOrLoss + ' per month' : '';
 }
