@@ -12,13 +12,13 @@ const inputs = [
 
 inputs.map(input => {
   input.onkeyup = () => {
-    displayResults(inputs);
+    var inputValues = {};
+    inputs.forEach(input => inputValues[input.id] = parseFloat(input.value));
+    displayResults(inputValues);
   }
 });
 
-function displayResults(inputs) {
-  var inputValues = {};
-  inputs.forEach(input => inputValues[input.id] = parseFloat(input.value));
+function displayResults(inputValues) {
   const savingsOrLoss = calculateSavings(inputValues);
   resultTd.innerHTML = savingsOrLoss ? savingsOrLoss + ' per month' : '';
 }
