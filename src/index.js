@@ -1,37 +1,24 @@
 import {calculateSavings} from './utils/fuelSavingsCalculator';
 
-const newMpg = getById('newMpg');
-const tradeMpg = getById('tradeMpg');
-const ppg = getById('ppg');
-const milesDrivenPerMonth = getById('milesDrivenPerMonth');
+const getById = (id) => global.document.getElementById(id);
 const resultTd = getById('result');
 
-const inputValues = {
-  newMpg: newMpg.value,
-  tradeMpg: tradeMpg.value,
-  ppg: ppg.value,
-  milesDrivenPerMonth: milesDrivenPerMonth.value
-};
-
 const inputs = [
-  newMpg,
-  tradeMpg,
-  ppg,
-  milesDrivenPerMonth
+  getById('newMpg'),
+  getById('tradeMpg'),
+  getById('ppg'),
+  getById('milesDrivenPerMonth')
 ];
 
 inputs.map(input => {
-  input.onkeyup = e => {
-    inputValues[input.id] = e.srcElement.value;
-    displayResults(inputValues);
+  input.onkeyup = () => {
+    displayResults(inputs);
   }
 });
 
-function getById(id) {
-  return global.document.getElementById(id);
-}
-
-function displayResults(inputValues) {
+function displayResults(inputs) {
+  var inputValues = {};
+  inputs.forEach(input => inputValues[input.id] = parseFloat(input.value));
   const savingsOrLoss = calculateSavings(inputValues);
   resultTd.innerHTML = savingsOrLoss ? savingsOrLoss + ' per month' : '';
 }

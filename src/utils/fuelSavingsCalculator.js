@@ -27,6 +27,5 @@ export function calculateSavings(settings) {
   if (!necessaryDataIsProvidedToCalculateSavings(settings)) {
     return;
   }
-
   return calculateSavingsPerMonth(settings);
 }
