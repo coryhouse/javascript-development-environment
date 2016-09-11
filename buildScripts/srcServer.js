@@ -17,6 +17,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
+// Useful if doing client-side routing.
 app.get('*', function(req, res) {
   res.sendFile(path.join( __dirname, '../src/index.html'));
 });
