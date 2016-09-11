@@ -14,4 +14,5 @@
 
 /* eslint-disable no-unused-vars */
 
+import numeral from 'numeral';
 import fetch from 'whatwg-fetch';
