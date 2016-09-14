@@ -1,22 +1,23 @@
 import webpack from 'webpack';
+import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   debug: true,
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
   noInfo: false,
   entry: [
     'webpack-hot-middleware/client?reload=true', // Enable hot reloading
-    './src/index'
+    path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
   output: {
-    path: __dirname + '/src', // Note: Physical files are only output by the production build task `npm run build`.
+    path: path.resolve(__dirname, 'src'), // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './src'
+    contentBase: path.resolve(__dirname, 'src')
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -30,7 +31,8 @@ export default {
   ],
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']}
+      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
+      {test: /\.css$/, loader: 'css'}
     ]
   }
 };

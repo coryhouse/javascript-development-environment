@@ -1,12 +1,31 @@
 import {calculateSavings} from './utils/fuelSavingsCalculator';
+import {getCalculations} from './api/api';
+import './index.css';
 
 const getById = (id) => global.document.getElementById(id);
+
+// Populate table of previous calculations via API call.
+getCalculations().then(result => {
+  let calculationsBody = "";
+
+  result.forEach(calculation => {
+    calculationsBody+= `<tr> 
+      <td>${calculation.newMpg}</td>
+      <td>${calculation.tradeMpg}</td>
+      <td>${calculation.pricePerGallon}</td>
+      <td>${calculation.milesDrivenPerMonth}</td>
+      </tr>`
+  });
+
+  getById('calculations').innerHTML = calculationsBody;
+});
+
 const resultTd = getById('result');
 
 const inputs = [
   getById('newMpg'),
   getById('tradeMpg'),
-  getById('ppg'),
+  getById('pricePerGallon'),
   getById('milesDrivenPerMonth')
 ];
 

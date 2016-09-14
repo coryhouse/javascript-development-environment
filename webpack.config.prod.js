@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 
@@ -7,17 +8,17 @@ export default {
   devtool: 'source-map',
   noInfo: false,
   entry: {
-    vendor: './src/vendor.js',
-    main: './src/index'
+    vendor: path.resolve(__dirname, 'src/vendor'),
+    main: path.resolve(__dirname, 'src/index')
   },
   target: 'web',
   output: {
-    path: __dirname + '/dist',
+    path: path.resolve(__dirname, '/dist'),
     publicPath: '/',
     filename: '[name].[chunkhash].js'
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: path.resolve(__dirname, 'src')
   },
   plugins: [
     // Hash the files using MD5 so that their names change when the content changes.
