@@ -41,3 +41,6 @@ jspm_packages
 
 #prod build
 dist
+
+#mock db
+db.json
