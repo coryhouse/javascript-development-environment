@@ -8,6 +8,11 @@ export const schema = {
       "items": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "number",
+            "unique": true,
+            "minimum": 1
+          },
           "newMpg": {
             "type": "number",
             "minimum": 12,
@@ -32,7 +37,7 @@ export const schema = {
             "maximum": 1500
           }
         },
-        required: ['newMpg', 'tradeMpg', 'pricePerGallon', 'milesDrivenPerMonth']
+        required: ['id', 'newMpg', 'tradeMpg', 'pricePerGallon', 'milesDrivenPerMonth']
       }
     }
   },
