@@ -7,12 +7,12 @@ export default {
   devtool: 'inline-source-map',
   noInfo: false,
   entry: [
-    'webpack-hot-middleware/client?reload=true', // Enable hot reloading
+    'webpack-hot-middleware/client?reload=true',
     path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'src'), // Note: Physical files are only output by the production build task `npm run build`.
+    path: path.resolve(__dirname, 'src'),
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -32,7 +32,7 @@ export default {
   module: {
     loaders: [
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      {test: /\.css$/, loader: 'css'}
+      {test: /\.css$/, loaders: ['style','css']}
     ]
   }
 };
