@@ -18,7 +18,7 @@ describe('Fuel Savings Calculator', () => {
       const settings = {
         newMpg: 20,
         tradeMpg: 10,
-        ppg: 1.50,
+        pricePerGallon: 1.50,
         milesDrivenPerMonth: 100
       };
 
@@ -33,7 +33,7 @@ describe('Fuel Savings Calculator', () => {
       const settings = {
         newMpg: 38,
         tradeMpg: 24,
-        ppg: 3.75,
+        pricePerGallon: 3.75,
         milesDrivenPerMonth: 480,
       };
 
@@ -48,7 +48,7 @@ describe('Fuel Savings Calculator', () => {
       // arrange
       const settings = {
         tradeMpg: 24,
-        ppg: 3.75,
+        pricePerGallon: 3.75,
         newMpg: 38,
         milesDrivenPerMonth: 550,
       };
@@ -64,7 +64,7 @@ describe('Fuel Savings Calculator', () => {
       // arrange
       const settings = {
         tradeMpg: 40,
-        ppg: 3.75,
+        pricePerGallon: 3.75,
         newMpg: 18,
         milesDrivenPerMonth: 1212.5,
       };

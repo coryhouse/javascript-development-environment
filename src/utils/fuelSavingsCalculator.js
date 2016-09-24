@@ -6,12 +6,8 @@ function calculateMonthlyCost(milesDrivenPerMonth, ppg, mpg) {
 }
 
 export function calculateSavingsPerMonth(settings) {
-  if (!settings.milesDrivenPerMonth) {
-    return 0;
-  }
-
-  const tradeFuelCostPerMonth = calculateMonthlyCost(settings.milesDrivenPerMonth, settings.ppg, settings.tradeMpg);
-  const newFuelCostPerMonth = calculateMonthlyCost(settings.milesDrivenPerMonth, settings.ppg, settings.newMpg);
+  const tradeFuelCostPerMonth = calculateMonthlyCost(settings.milesDrivenPerMonth, settings.pricePerGallon, settings.tradeMpg);
+  const newFuelCostPerMonth = calculateMonthlyCost(settings.milesDrivenPerMonth, settings.pricePerGallon, settings.newMpg);
   const savingsPerMonth = tradeFuelCostPerMonth - newFuelCostPerMonth;
   return numeral(savingsPerMonth).format('$0.00');
 }
@@ -19,7 +15,7 @@ export function calculateSavingsPerMonth(settings) {
 export function necessaryDataIsProvidedToCalculateSavings(settings) {
   return settings.newMpg > 0
     && settings.tradeMpg > 0
-    && settings.ppg > 0
+    && settings.pricePerGallon > 0
     && settings.milesDrivenPerMonth > 0;
 }
 
