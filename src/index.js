@@ -1,5 +1,5 @@
 import {calculateSavings} from './utils/fuelSavingsCalculator';
-import {getCalculations} from './api/api';
+import {getCalculations, deleteCalculation} from './api/api';
 import './index.css';
 
 const getById = (id) => global.document.getElementById(id);
@@ -10,6 +10,7 @@ getCalculations().then(result => {
 
   result.forEach(calculation => {
     calculationsBody+= `<tr> 
+      <td><a href="#" data-id="${calculation.id}" class="deleteCalc">Delete</a></td>
       <td>${calculation.newMpg}</td>
       <td>${calculation.tradeMpg}</td>
       <td>${calculation.pricePerGallon}</td>
@@ -18,6 +19,17 @@ getCalculations().then(result => {
   });
 
   getById('calculations').innerHTML = calculationsBody;
+
+  const deleteLinks = global.document.getElementsByClassName('deleteCalc');
+
+  // Must use array.prototype here since getElementsByClassname only returns an "array like" object
+  Array.prototype.forEach.call(deleteLinks, link => {
+    link.onclick = function(event) {
+      const element = event.target;
+      event.preventDefault();
+      deleteCalculation(element.attributes["data-id"].value);
+    };
+  });
 });
 
 const resultTd = getById('result');
