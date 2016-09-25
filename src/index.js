@@ -28,6 +28,8 @@ getCalculations().then(result => {
       const element = event.target;
       event.preventDefault();
       deleteCalculation(element.attributes["data-id"].value);
+      const row = element.parentNode.parentNode;
+      row.parentNode.removeChild(row);
     };
   });
 });
