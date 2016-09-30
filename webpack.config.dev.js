@@ -7,7 +7,6 @@ export default {
   devtool: 'inline-source-map',
   noInfo: false,
   entry: [
-    'webpack-hot-middleware/client?reload=true',
     path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
@@ -20,9 +19,6 @@ export default {
     contentBase: path.resolve(__dirname, 'src')
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: 'src/index.ejs',
