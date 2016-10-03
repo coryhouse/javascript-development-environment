@@ -9,7 +9,7 @@ getCalculations().then(result => {
   let calculationsBody = "";
 
   result.forEach(calculation => {
-    calculationsBody+= `<tr> 
+    calculationsBody+= `<tr>
       <td><a href="#" data-id="${calculation.id}" class="deleteCalc">Delete</a></td>
       <td>${calculation.newMpg}</td>
       <td>${calculation.tradeMpg}</td>
@@ -22,7 +22,8 @@ getCalculations().then(result => {
 
   const deleteLinks = global.document.getElementsByClassName('deleteCalc');
 
-  // Must use array.prototype here since getElementsByClassname only returns an "array like" object
+  // Must use array.prototype here
+  // getElementsByClassname only returns an "array like" object
   Array.prototype.forEach.call(deleteLinks, link => {
     link.onclick = function(event) {
       const element = event.target;
