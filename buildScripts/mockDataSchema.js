@@ -13,6 +13,10 @@ export const schema = {
             "unique": true,
             "minimum": 1
           },
+          "country": {
+            "type": "string",
+            "faker": "address.country"
+          },
           "newMpg": {
             "type": "number",
             "minimum": 12,
@@ -37,7 +41,7 @@ export const schema = {
             "maximum": 1500
           }
         },
-        required: ['id', 'newMpg', 'tradeMpg', 'pricePerGallon', 'milesDrivenPerMonth']
+        required: ['id', 'country', 'newMpg', 'tradeMpg', 'pricePerGallon', 'milesDrivenPerMonth']
       }
     }
   },
