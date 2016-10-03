@@ -1,8 +1,8 @@
 import numeral from 'numeral';
 
-function calculateMonthlyCost(milesDrivenPerMonth, ppg, mpg) {
+function calculateMonthlyCost(milesDrivenPerMonth, pricePerGallon, mpg) {
   const gallonsUsedPerMonth = milesDrivenPerMonth / mpg;
-  return gallonsUsedPerMonth * ppg;
+  return gallonsUsedPerMonth * pricePerGallon;
 }
 
 export function calculateSavingsPerMonth(settings) {
