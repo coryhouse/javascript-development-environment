@@ -1,4 +1,3 @@
-// Tests are placed alongside files under test.
 // This file does the following:
 // 1. Registers babel for transpiling our code for testing
 // 2. Disables Webpack-specific features that Mocha doesn't understand.
@@ -18,8 +17,6 @@ require('babel-register')();
 // Disable webpack-specific features for tests since
 // Mocha doesn't know what to do with them.
 require.extensions['.css'] = function () {return null;};
-require.extensions['.png'] = function () {return null;};
-require.extensions['.jpg'] = function () {return null;};
 
 // Configure JSDOM and set global variables
 // to simulate a browser environment for tests.
