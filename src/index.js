@@ -22,9 +22,9 @@ getCalculations().then(result => {
 
   const deleteLinks = global.document.getElementsByClassName('deleteCalc');
 
-  // Must use array.prototype here
+  // Must use array.from to create a real array from a DOM collection
   // getElementsByClassname only returns an "array like" object
-  Array.prototype.forEach.call(deleteLinks, link => {
+  Array.from(deleteLinks, link => {
     link.onclick = function(event) {
       const element = event.target;
       event.preventDefault();
