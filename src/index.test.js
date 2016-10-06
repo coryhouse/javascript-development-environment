@@ -9,9 +9,13 @@ describe('Our first test', () => {
 });
 
 it('has document', function () {
-  jsdom();
-  var div = document.createElement('div')
-  expect(div.nodeName).eql('DIV')
+  const html = '<!doctype html><html><body></body></html>';
+  global.document = jsdom.env(html, function(err, window) {
+    var div = window.document.createElement('div');
+    expect(div.nodeName).eql('DIV');
+    // free memory associated with the window
+    window.close();
+  });
 });
 
 describe('jsdom test', () => {
@@ -22,6 +26,7 @@ describe('jsdom test', () => {
       expect(h2.innerHTML).to.equal("Fuel Savings Calculator");
       done();
       // free memory associated with the window
+      window.close();
     });
   });
 });
