@@ -1,40 +1,11 @@
-// This file does the following:
-// 1. Registers babel for transpiling our code for testing
-// 2. Disables Webpack-specific features that Mocha doesn't understand.
-// 3. Requires jsdom so we can test via an in-memory DOM in Node
-// 4. Sets up global vars that mimic a browser.
+// This file isn't transpiled, so must use CommonJS and ES5
 
-/*eslint-disable no-var*/
+// Enable JSDOM to simulate browser environment in Node
+var jsdom = require('mocha-jsdom');
+jsdom();
 
-// This assures the .babelrc dev config (which includes
-// hot module reloading code) doesn't apply for tests.
-process.env.NODE_ENV = 'test';
-
-// Register babel so that it will transpile ES6 to ES5
-// before our tests run.
+// Register babel to transpile before our tests run.
 require('babel-register')();
 
-// Disable webpack-specific features for tests since
-// Mocha doesn't know what to do with them.
-require.extensions['.css'] = function () {return null;};
-
-// Configure JSDOM and set global variables
-// to simulate a browser environment for tests.
-var jsdom = require('jsdom').jsdom;
-
-var exposedProperties = ['window', 'navigator', 'document'];
-
-global.document = jsdom('');
-global.window = document.defaultView;
-Object.keys(document.defaultView).forEach((property) => {
-  if (typeof global[property] === 'undefined') {
-    exposedProperties.push(property);
-    global[property] = document.defaultView[property];
-  }
-});
-
-global.navigator = {
-  userAgent: 'node.js'
-};
-
-documentRef = document;  //eslint-disable-line no-undef
+// Disable webpack features that Mocha doesn't understand.
+require.extensions['.css'] = function() {};
