@@ -1,6 +1,7 @@
 import {expect} from 'chai';
 import jsdom from 'jsdom';
 import fs from 'fs';
+import index from './index';
 
 describe('Our first test', () => {
   it('should pass', () => {
@@ -20,8 +21,8 @@ it('has document', function () {
 
 describe('jsdom test', () => {
   it('should pass', (done) => {
-    const index = fs.readFileSync('./src/index.html', "utf-8");
-    jsdom.env(index, function (err, window) {
+    const indexHtml = fs.readFileSync('./src/index.html', "utf-8");
+    jsdom.env(indexHtml, [index], function (err, window) {
       const h2 = window.document.getElementById('main-heading');
       expect(h2.innerHTML).to.equal("Fuel Savings Calculator");
       done();
