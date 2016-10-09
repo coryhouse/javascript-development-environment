@@ -17,9 +17,6 @@ export default {
     publicPath: '/',
     filename: '[name].[chunkhash].js'
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'src')
-  },
   plugins: [
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
