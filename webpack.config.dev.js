@@ -14,9 +14,6 @@ export default {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'src')
-  },
   plugins: [
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
