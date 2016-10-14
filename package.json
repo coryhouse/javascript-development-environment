@@ -46,6 +46,7 @@
     "eslint-plugin-import": "2.0.0",
     "eslint-watch": "2.1.14",
     "express": "4.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "2.22.0",
     "jsdom": "9.6.0",
     "json-schema-faker": "0.3.6",
