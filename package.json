@@ -22,7 +22,8 @@
     "deploy": "surge ./dist --domain fuelcalc.surge.sh",
     "prestart-mockapi": "npm run generate-mock-data",
     "start-mockapi": "json-server --watch src/api/db.json --port 3001",
-    "generate-mock-data": "babel-node buildScripts/generateMockData"
+    "generate-mock-data": "babel-node buildScripts/generateMockData",
+    "deploy": "surge ./dist"
   },
   "author": "Cory House",
   "license": "MIT",
