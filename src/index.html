@@ -1,56 +1,41 @@
-<!DOCTYPE html>
+<!--
+  **NOTE:** This is a template for index.html.
+  It uses ejs and htmlWebpackPlugin to generate a different index.html for each environment.
+  htmlWebpackPlugin will dynamically add references to the scripts and styles that it bundles
+  to this file. The generated bundles have hash-based filenames,
+  so it's necessary to add the references dynamically.
+  For more info on ejs, see http://www.embeddedjs.com/.
+  For examples of using it with htmlWebpackPlugin,
+  see https://github.com/jaketrent/html-webpack-template/blob/master/index.ejs
+  -->
+  <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--
+    The htmlWebpackPlugin will parse the logic below so that trackJS is only added to the production version of index.html (since only webpack.config.prod.js provides the trackJS token)
+    This is an example of how to add features to index.html for only one environment.
+   -->
+    <% if (htmlWebpackPlugin.options.trackJSToken) { %>
+    <!-- BEGIN TRACKJS -->
+    <script type="text/javascript">window._trackJs = { token: '<%=htmlWebpackPlugin.options.trackJSToken%>' };</script>
+    <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+    <!-- END TRACKJS -->
+    <% } %>
   <meta charset="UTF-8">
-  <title>Fuel Savings Calculator</title>
 </head>
 <body>
-<h2 id="main-heading">Fuel Savings Calculator</h2>
-<table>
-  <tbody>
-  <tr>
-    <td><label for="newMpg">New Vehicle MPG</label></td>
-    <td><input type="text" id="newMpg">
-    </td>
-  </tr>
-  <tr>
-    <td><label for="tradeMpg">Trade-in MPG</label></td>
-    <td><input type="text" id="tradeMpg" />
-    </td>
-  </tr>
-  <tr>
-    <td><label for="pricePerGallon">Price Per Gallon</label></td>
-    <td><input type="text" id="pricePerGallon" />
-    </td>
-  </tr>
-  <tr>
-    <td><label for="milesDrivenPerMonth">Miles Driven per month</label></td>
-    <td>
-      <input type="text" id="milesDrivenPerMonth" />
-    </td>
-  </tr>
-  <tr>
-    <td>Savings / Loss</td>
-    <td id="result"></td>
-  </tr>
-  </tbody>
-</table>
+  <h1>Users</h1>
+  <table>
+    <thead>
+      <th>&nbsp;</th>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+    </thead>
+    <tbody id="users">
 
-
-<h2>Previous Calculations</h2>
-<table>
-  <thead>
-    <th>&nbsp;</th>
-    <th>New MPG</th>
-    <th>Trade MPG</th>
-    <th>Price Per Gallon</th>
-    <th>Miles Driven Per Month</th>
-  </thead>
-  <tbody id="calculations">
-
-  </tbody>
-</table>
-
-<script src="bundle.js"></script>
+    </tbody>
+  </table>
 </body>
 </html>

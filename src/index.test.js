@@ -8,25 +8,14 @@ describe('Our first test', () => {
   });
 });
 
-it('has document', function () {
-  const html = '<!doctype html><html><body></body></html>';
-  global.document = jsdom.env(html, function(err, window) {
-    var div = window.document.createElement('div');
-    expect(div.nodeName).eql('DIV');
-    // free memory associated with the window
-    window.close();
-  });
-});
-
-describe('jsdom test', () => {
-  it('should pass', (done) => {
-    const indexHtml = fs.readFileSync('./src/index.html', "utf-8");
-    jsdom.env(indexHtml, function (err, window) {
-      const h2 = window.document.getElementById('main-heading');
-      expect(h2.innerHTML).to.equal("Fuel Savings Calculator");
+describe('index.html', () => {
+  it('should have h1 that says Users', (done) => {
+    const index = fs.readFileSync('./src/index.html', "utf-8");
+    jsdom.env(index, function(err, window) {
+      const h1 = window.document.getElementsByTagName('h1')[0];
+      expect(h1.innerHTML).to.equal("Users");
       done();
-      // free memory associated with the window
       window.close();
     });
-  });
-});
+  })
+})

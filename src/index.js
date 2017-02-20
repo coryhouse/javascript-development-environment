@@ -1,26 +1,24 @@
-import {calculateSavings} from './utils/fuelSavingsCalculator';
-import {getCalculations, deleteCalculation} from './api/api';
 import './index.css';
 
-const getById = (id) => global.document.getElementById(id);
+import {getUsers, deleteUser} from './api/userApi';
 
-// Populate table of previous calculations via API call.
-getCalculations().then(result => {
-  let calculationsBody = "";
+// Populate table of users via API call.
+getUsers().then(result => {
+  let usersBody = "";
 
-  result.forEach(calculation => {
-    calculationsBody+= `<tr>
-      <td><a href="#" data-id="${calculation.id}" class="deleteCalc">Delete</a></td>
-      <td>${calculation.newMpg}</td>
-      <td>${calculation.tradeMpg}</td>
-      <td>${calculation.pricePerGallon}</td>
-      <td>${calculation.milesDrivenPerMonth}</td>
+  result.forEach(user => {
+    usersBody+= `<tr>
+      <td><a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>
+      <td>${user.id}</td>
+      <td>${user.firstName}</td>
+      <td>${user.lastName}</td>
+      <td>${user.email}</td>
       </tr>`
   });
 
-  getById('calculations').innerHTML = calculationsBody;
+  global.document.getElementById('users').innerHTML = usersBody;
 
-  const deleteLinks = global.document.getElementsByClassName('deleteCalc');
+  const deleteLinks = global.document.getElementsByClassName('deleteUser');
 
   // Must use array.from to create a real array from a DOM collection
   // getElementsByClassname only returns an "array like" object
@@ -28,31 +26,9 @@ getCalculations().then(result => {
     link.onclick = function(event) {
       const element = event.target;
       event.preventDefault();
-      deleteCalculation(element.attributes["data-id"].value);
+      deleteUser(element.attributes["data-id"].value);
       const row = element.parentNode.parentNode;
       row.parentNode.removeChild(row);
     };
   });
 });
-
-const resultTd = getById('result');
-
-const inputs = [
-  getById('newMpg'),
-  getById('tradeMpg'),
-  getById('pricePerGallon'),
-  getById('milesDrivenPerMonth')
-];
-
-inputs.map(input => {
-  input.onkeyup = () => {
-    var inputValues = {};
-    inputs.forEach(input => inputValues[input.id] = parseFloat(input.value));
-    displayResults(inputValues);
-  }
-});
-
-function displayResults(inputValues) {
-  const savingsOrLoss = calculateSavings(inputValues);
-  resultTd.innerHTML = savingsOrLoss ? savingsOrLoss + ' per month' : '';
-}

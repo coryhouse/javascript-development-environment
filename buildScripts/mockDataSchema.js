@@ -1,7 +1,7 @@
 export const schema = {
   "type": "object",
   "properties": {
-    "calculations": {
+    "users": {
       "type": "array",
       "minItems": 3,
       "maxItems": 5,
@@ -13,37 +13,22 @@ export const schema = {
             "unique": true,
             "minimum": 1
           },
-          "country": {
+          "firstName": {
             "type": "string",
-            "faker": "address.country"
+            "faker": "name.firstName"
           },
-          "newMpg": {
-            "type": "number",
-            "minimum": 12,
-            "maximum": 55
-          },
-          "tradeMpg": {
-            "type": "number",
-            "minimum": 12,
-            "maximum": 55
-          },
-          "pricePerGallon": {
+          "lastName": {
             "type": "string",
-            "chance": {
-              "dollar": {
-                "max": 5
-              }
-            }
+            "faker": "name.lastName",
           },
-          "milesDrivenPerMonth": {
-            "type": "number",
-            "minimum": 100,
-            "maximum": 1500
+          "email": {
+            "type": "string",
+            "faker": "internet.email",
           }
         },
-        required: ['id', 'country', 'newMpg', 'tradeMpg', 'pricePerGallon', 'milesDrivenPerMonth']
+        required: ['id', 'firstName', 'lastName', 'email']
       }
     }
   },
-  required: ['calculations']
+  required: ['users']
 };
