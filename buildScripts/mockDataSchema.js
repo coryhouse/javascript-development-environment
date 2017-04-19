@@ -19,16 +19,16 @@ export const schema = {
           },
           "lastName": {
             "type": "string",
-            "faker": "name.lastName",
+            "faker": "name.lastName"
           },
           "email": {
             "type": "string",
-            "faker": "internet.email",
+            "faker": "internet.email"
           }
         },
-        required: ['id', 'firstName', 'lastName', 'email']
+        "required": ["id", "type", "lastname", "email"]
       }
     }
   },
-  required: ['users']
+  "required": ["users"]
 };
