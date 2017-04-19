@@ -5,9 +5,10 @@ import WebpackMd5Hash from 'webpack-md5-hash';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
-  debug: true,
+  resolve: {
+    extensions: ['*', '.js', '.jsx', '.json']
+  },
   devtool: 'source-map',
-  noInfo: false,
   entry: {
     vendor: path.resolve(__dirname, 'src/vendor'),
     main: path.resolve(__dirname, 'src/index')
@@ -19,6 +20,13 @@ export default {
     filename: '[name].[chunkhash].js'
   },
   plugins: [
+    // Global loader configuration
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false,
+      noInfo: true // set to false to see a list of every file being bundled.
+    }),
+
     // Generate an external css file with a hash in the filename
     new ExtractTextPlugin('[name].[contenthash].css'),
 
@@ -52,16 +60,13 @@ export default {
       trackJSToken: 'INSERT YOUR TOKEN HERE'
     }),
 
-    // Eliminate duplicate packages when generating bundle
-    new webpack.optimize.DedupePlugin(),
-
     // Minify JS
     new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap')}
+      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
+      {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader?sourceMap')}
     ]
   }
 };
