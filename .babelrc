@@ -1,11 +1,11 @@
 {
   "presets": [
-    "latest"
+    "env"
   ],
   "env": {
     "production": {
       "presets": [
-        ["latest", {
+        ["env", {
           "es2015": {
             "modules": false
           }
