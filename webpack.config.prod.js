@@ -64,8 +64,8 @@ export default {
     new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
-    loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
+    rules: [
+      {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
       {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader?sourceMap')}
     ]
   }
