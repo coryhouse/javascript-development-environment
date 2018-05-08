@@ -72,7 +72,7 @@ export default {
     })
 
     // Minify JS
-    // Code is automatically minified in prod mode, so removing this.
+    // Code is automatically minified in prod mode as of Webpack 4, so removing this.
     // new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
