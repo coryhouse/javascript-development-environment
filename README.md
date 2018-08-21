@@ -9,7 +9,7 @@ This is a generic JavaScript development environment that I build from scratch i
 3. **Make sure you're in the directory you just created.** - `cd javascript-development-environment`
 4. **Install Node Packages.** - `npm install`
 5. **Run the app.** - `npm start -s`
-This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching files all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.
+   This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching files all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.
 6. Having issues? See below.
 
 ## Having Issues? Try these things first:
@@ -31,7 +31,10 @@ This will run the automated build process, start up a webserver, and open the ap
 | babel-loader                | Adds Babel support to Webpack                                                                             |
 | babel-preset-latest         | Babel preset for running all the latest standardized JavaScript features                                  |
 | babel-register              | Register Babel to transpile our Mocha tests                                                               |
+| chai                        | Assertion library                                                                                         |
+| chalk                       | Colored command line output                                                                               |
 | cheerio                     | Supports querying DOM with jQuery like syntax - Useful in testing and build process for HTML manipulation |
+| compression                 | gzip http output                                                                                          |
 | cross-env                   | Cross-environment friendly way to handle environment variables                                            |
 | css-loader                  | Add CSS support to Webpack                                                                                |
 | eslint                      | Lints JavaScript                                                                                          |
@@ -42,9 +45,15 @@ This will run the automated build process, start up a webserver, and open the ap
 | express                     | Serves development and production builds                                                                  |
 | extract-text-webpack-plugin | Extracts CSS into separate file for production build                                                      |
 | file-loader                 | Adds file loading support to Webpack                                                                      |
+| html-webpack-plugin         | Generate HTML file programatically via Webpack                                                            |
 | jsdom                       | In-memory DOM for testing                                                                                 |
+| json-schema-faker           | Declare a JSON schema for generating fake data                                                            |
+| json-server                 | Serve a JSON API locally                                                                                  |
+| localtunnel                 | Create a tunnel to your local machine                                                                     |
 | mocha                       | JavaScript testing library                                                                                |
+| nock                        | Mock HTTP requests via Node                                                                               |
 | npm-run-all                 | Display results of multiple commands on single command line                                               |
+| numeral                     | Library for working with numbers                                                                          |
 | open                        | Open app in default browser                                                                               |
 | rimraf                      | Delete files                                                                                              |
 | style-loader                | Add Style support to Webpack                                                                              |
@@ -52,3 +61,4 @@ This will run the automated build process, start up a webserver, and open the ap
 | webpack                     | Bundler with plugin system and integrated development server                                              |
 | webpack-dev-middleware      | Adds middleware support to webpack                                                                        |
 | webpack-hot-middleware      | Adds hot reloading to webpack                                                                             |
+| webpack-md5-hash            | Used to hash files generated by Webpack using MD5 so that their names change when the content changes     |
