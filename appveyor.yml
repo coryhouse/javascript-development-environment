@@ -1,8 +1,8 @@
 # Test against this version of Node.js
 environment:
   matrix:
-  # node.js
-  - nodejs_version: "6"
+    # node.js
+    - nodejs_version: "10"
 
 # Install scripts. (runs after repo cloning)
 install:
