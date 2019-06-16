@@ -38,28 +38,67 @@
     "cheerio": "1.0.0-rc.3",
     "compression": "1.7.4",
     "cross-env": "5.2.0",
-    "css-loader": "2.1.1",
+    "css-loader": "3.0.0",
     "eslint": "5.16.0",
-    "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-import": "2.17.3",
     "eslint-watch": "5.1.2",
-    "express": "4.17.0",
+    "express": "4.17.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "faker": "^4.1.0",
     "html-webpack-plugin": "3.2.0",
-    "jsdom": "^13.0.0",
-    "json-schema-faker": "0.5.0-rc16",
-    "json-server": "0.14.0",
-    "localtunnel": "1.9.1",
+    "jsdom": "^15.1.1",
+    "json-schema-faker": "0.5.0-rc17",
+    "json-server": "0.15.0",
+    "localtunnel": "1.9.2",
     "mocha": "6.1.4",
     "npm-run-all": "4.1.5",
     "numeral": "2.0.6",
     "open": "6.3.0",
     "rimraf": "2.6.3",
     "style-loader": "0.23.1",
-    "surge": "0.20.5",
-    "webpack": "4.32.2",
+    "surge": "0.21.3",
+    "webpack": "4.34.0",
     "webpack-dev-middleware": "3.7.0",
     "webpack-hot-middleware": "2.25.0",
     "webpack-md5-hash": "0.0.6"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "env": {
+      "production": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "es2015": {
+                "modules": false
+              }
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "eslint:recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true
+    },
+    "rules": {
+      "no-console": 1
+    }
   }
 }
