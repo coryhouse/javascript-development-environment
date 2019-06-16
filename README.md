@@ -4,7 +4,7 @@ This is a generic JavaScript development environment that I build from scratch i
 
 ## Get Started
 
-1. **Install [Node 6 or newer](https://nodejs.org)**. Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows)
+1. **Install [Node 10 or newer](https://nodejs.org)**. Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows)
 2. **Clone this repository.** - `git clone https://github.com/coryhouse/javascript-development-environment.git` or [download the zip](https://github.com/coryhouse/javascript-development-environment/archive/master.zip)
 3. **Make sure you're in the directory you just created.** - `cd javascript-development-environment`
 4. **Install Node Packages.** - `npm install`
@@ -26,12 +26,12 @@ This is a generic JavaScript development environment that I build from scratch i
 
 | **Dependency**              | **Use**                                                                                                   |
 | --------------------------- | --------------------------------------------------------------------------------------------------------- |
-| @babel/cli                   | Babel Command line interface                                                                              |
-| @babel/core                  | Babel Core for transpiling the new JavaScript to old                                                      |
+| @babel/cli                  | Babel Command line interface                                                                              |
+| @babel/core                 | Babel Core for transpiling the new JavaScript to old                                                      |
 | babel-loader                | Adds Babel support to Webpack                                                                             |
 | @babel/node                 | Run Babel via Node                                                                                        |
 | babel-preset-latest         | Babel preset for running all the latest standardized JavaScript features                                  |
-| @babel/register              | Register Babel to transpile our Mocha tests                                                               |
+| @babel/register             | Register Babel to transpile our Mocha tests                                                               |
 | chai                        | Assertion library                                                                                         |
 | chalk                       | Colored command line output                                                                               |
 | cheerio                     | Supports querying DOM with jQuery like syntax - Useful in testing and build process for HTML manipulation |
