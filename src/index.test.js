@@ -8,6 +8,7 @@ describe('Our first test', () => {
   });
 });
 
+// comment
 describe('index.html', () => {
   it('should have h1 that says Users', (done) => {
     const index = fs.readFileSync('./src/index.html', "utf-8");
