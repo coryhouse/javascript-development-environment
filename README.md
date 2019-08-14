@@ -26,11 +26,12 @@ This is a generic JavaScript development environment that I build from scratch i
 
 | **Dependency**              | **Use**                                                                                                   |
 | --------------------------- | --------------------------------------------------------------------------------------------------------- |
-| babel-cli                   | Babel Command line interface                                                                              |
-| babel-core                  | Babel Core for transpiling the new JavaScript to old                                                      |
+| @babel/cli                   | Babel Command line interface                                                                              |
+| @babel/core                  | Babel Core for transpiling the new JavaScript to old                                                      |
 | babel-loader                | Adds Babel support to Webpack                                                                             |
+| @babel/node                 | Run Babel via Node                                                                                        |
 | babel-preset-latest         | Babel preset for running all the latest standardized JavaScript features                                  |
-| babel-register              | Register Babel to transpile our Mocha tests                                                               |
+| @babel/register              | Register Babel to transpile our Mocha tests                                                               |
 | chai                        | Assertion library                                                                                         |
 | chalk                       | Colored command line output                                                                               |
 | cheerio                     | Supports querying DOM with jQuery like syntax - Useful in testing and build process for HTML manipulation |
