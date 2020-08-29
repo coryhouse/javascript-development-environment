@@ -42,11 +42,11 @@ This is a generic JavaScript development environment that I build from scratch i
 | eslint-plugin-import    | Advanced linting of ES6 imports                                                                           |
 | eslint-watch            | Add watch functionality to ESLint                                                                         |
 | express                 | Serves development and production builds                                                                  |
+| faker                   | Generates realistic fake data                                                                             |
 | html-webpack-plugin     | Generate HTML file programatically via Webpack                                                            |
 | jsdom                   | In-memory DOM for testing                                                                                 |
 | json-schema-faker       | Declare a JSON schema for generating fake data                                                            |
 | json-server             | Serve a JSON API locally                                                                                  |
-| localtunnel             | Create a tunnel to your local machine                                                                     |
 | mini-css-extract-plugin | Extract CSS to a separate file and minimize                                                               |
 | mocha                   | JavaScript testing library                                                                                |
 | nock                    | Mock HTTP requests via Node                                                                               |
@@ -55,6 +55,8 @@ This is a generic JavaScript development environment that I build from scratch i
 | open                    | Open app in default browser                                                                               |
 | rimraf                  | Delete files                                                                                              |
 | style-loader            | Add Style support to Webpack                                                                              |
+| surge                   | Host a static site via a CLI command                                                                      |
 | webpack                 | Bundler with plugin system and integrated development server                                              |
 | webpack-dev-middleware  | Adds middleware support to webpack                                                                        |
 | webpack-hot-middleware  | Adds hot reloading to webpack                                                                             |
+| whatwg-fetch            | Polyfill for the Browser's native fetch for older browsers                                                |
