@@ -28,10 +28,10 @@ This is a generic JavaScript development environment that I build from scratch i
 | ----------------------- | --------------------------------------------------------------------------------------------------------- |
 | @babel/cli              | Babel Command line interface                                                                              |
 | @babel/core             | Babel Core for transpiling the new JavaScript to old                                                      |
-| babel-loader            | Adds Babel support to Webpack                                                                             |
 | @babel/node             | Run Babel via Node                                                                                        |
-| babel-preset-latest     | Babel preset for running all the latest standardized JavaScript features                                  |
+| @babel/preset-env       | Babel preset for compiling to specific environments                                                       |
 | @babel/register         | Register Babel to transpile our Mocha tests                                                               |
+| babel-loader            | Adds Babel support to Webpack                                                                             |
 | chai                    | Assertion library                                                                                         |
 | chalk                   | Colored command line output                                                                               |
 | cheerio                 | Supports querying DOM with jQuery like syntax - Useful in testing and build process for HTML manipulation |
