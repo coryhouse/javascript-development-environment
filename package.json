@@ -61,43 +61,5 @@
     "webpack-dev-middleware": "3.7.2",
     "webpack-hot-middleware": "2.25.0",
     "webpack-md5-hash": "0.0.6"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "env": {
-      "production": {
-        "presets": [
-          [
-            "@babel/preset-env",
-            {
-              
-              "targets": "> 0.25%, not dead"
-            }
-          ]
-        ]
-      }
-    }
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "eslint:recommended",
-      "plugin:import/errors",
-      "plugin:import/warnings"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 7,
-      "sourceType": "module"
-    },
-    "env": {
-      "browser": true,
-      "node": true,
-      "mocha": true
-    },
-    "rules": {
-      "no-console": 1
-    }
   }
 }
