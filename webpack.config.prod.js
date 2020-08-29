@@ -5,9 +5,6 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
   mode: 'production',
-  resolve: {
-    extensions: ['*', '.js', '.json']
-  },
   devtool: 'source-map',
   entry: {
     vendor: path.resolve(__dirname, 'src/vendor'),
