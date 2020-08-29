@@ -58,7 +58,6 @@
     "style-loader": "1.2.1",
     "surge": "0.21.6",
     "webpack": "4.44.1",
-    "webpack-dev-middleware": "3.7.2",
-    "webpack-hot-middleware": "2.25.0"
+    "webpack-dev-middleware": "3.7.2"
   }
 }
