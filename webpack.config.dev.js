@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 export default {
   mode: 'development',
   devtool: 'eval-source-map',
-  entry: './src/index.js', // default, so can omit.
+  entry: './src/index.js', // This is the default, so can omit if desired.
   output: {
     path: path.resolve(__dirname, 'src'),
     publicPath: '/',
