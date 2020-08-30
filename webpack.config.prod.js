@@ -17,7 +17,9 @@ export default {
   },
   plugins: [
     // Generate an external css file with a hash in the filename
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
+    }),
 
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
