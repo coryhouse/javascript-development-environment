@@ -2,13 +2,9 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
-  debug: true,
-  devtool: 'inline-source-map',
-  noInfo: false,
-  entry: [
-    path.resolve(__dirname, 'src/index')
-  ],
-  target: 'web',
+  mode: 'development',
+  devtool: 'eval-source-map',
+  entry: './src/index.js', // This is the default, so can omit if desired.
   output: {
     path: path.resolve(__dirname, 'src'),
     publicPath: '/',
@@ -17,14 +13,13 @@ export default {
   plugins: [
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      inject: true
+      template: 'src/index.html'
     })
   ],
   module: {
-    loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      {test: /\.css$/, loaders: ['style','css']}
+    rules: [
+      {test: /\.js$/, exclude: /node_modules/, use: ['babel-loader']},
+      {test: /\.css$/, use: ['style-loader','css-loader']}
     ]
   }
 }

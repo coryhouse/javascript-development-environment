@@ -1,5 +1,15 @@
 {
-  "presets": [
-    "latest"
-  ]
+  "presets": ["@babel/preset-env"],
+  "env": {
+    "production": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": "> 0.25%, not dead"
+          }
+        ]
+      ]
+    }
+  }
 }
