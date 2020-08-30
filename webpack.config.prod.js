@@ -14,19 +14,7 @@ export default {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: '[name].[chunkhash].js'
-  },
-  // Webpack 4 removed the commonsChunkPlugin. Use optimization.splitChunks instead.
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all'
-        }
-      }
-    }
+    filename: '[name].[hash].js'
   },
   plugins: [
     // Generate an external css file with a hash in the filename
