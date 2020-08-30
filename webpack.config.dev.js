@@ -5,7 +5,6 @@ export default {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: './src/index.js', // default, so can omit.
-  target: 'web',
   output: {
     path: path.resolve(__dirname, 'src'),
     publicPath: '/',
