@@ -1,4 +1,3 @@
-import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -19,9 +18,6 @@ export default {
   plugins: [
     // Generate an external css file with a hash in the filename
     new MiniCssExtractPlugin(),
-
-    // Hash the files using MD5 so that their names change when the content changes.
-    new webpack.HashedModuleIdsPlugin(),
 
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
