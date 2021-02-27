@@ -6,9 +6,9 @@ export default {
   mode: 'production',
   devtool: 'source-map',
   entry: {
-    vendor: path.resolve(__dirname, 'src/vendor'),
-    main: path.resolve(__dirname, 'src/index')
-  },
+    main: path.resolve(__dirname, 'src/index'),
+    vendor: path.resolve(__dirname, 'src/vendor')
+  }, 
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
