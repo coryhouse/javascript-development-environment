@@ -10,7 +10,6 @@ export const schema = {
         properties: {
           id: {
             type: "integer",
-
             minimum: 1,
           },
           firstName: {
