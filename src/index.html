@@ -8,9 +8,9 @@
   For examples of using it with HtmlWebpackPlugin,
   see https://github.com/jaketrent/html-webpack-template/blob/master/index.ejs
   -->
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!--
     The htmlWebpackPlugin will parse the logic below so that trackJS is only added to the production version of index.html 
     (since only webpack.config.prod.js provides the trackJS token)
@@ -18,25 +18,30 @@
    -->
     <% if (htmlWebpackPlugin.options.trackJSToken) { %>
     <!-- BEGIN TRACKJS -->
-    <script type="text/javascript">window._trackJs = { token: '<%=htmlWebpackPlugin.options.trackJSToken%>' };</script>
-    <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+    <script type="text/javascript">
+      window._trackJs = {
+        token: "<%=htmlWebpackPlugin.options.trackJSToken%>",
+      };
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.trackjs.com/releases/current/tracker.js"
+    ></script>
     <!-- END TRACKJS -->
     <% } %>
-  <meta charset="UTF-8" />
-</head>
-<body>
-  <h1>Users</h1>
-  <table>
-    <thead>
-      <th>&nbsp;</th>
-      <th>Id</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-    </thead>
-    <tbody id="users">
-
-    </tbody>
-  </table>
-</body>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h1>Users</h1>
+    <table>
+      <thead>
+        <th>&nbsp;</th>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </thead>
+      <tbody id="users"></tbody>
+    </table>
+  </body>
 </html>
