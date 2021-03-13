@@ -3,7 +3,7 @@ import path from "path";
 import open from "open";
 import compression from "compression";
 
-/*eslint-disable no-console */
+/* eslint-disable no-console */
 
 const port = 3000;
 const app = express();
