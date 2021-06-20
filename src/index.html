@@ -1,41 +1,47 @@
 <!--
   **NOTE:** This is a template for index.html.
-  It uses ejs and htmlWebpackPlugin to generate a different index.html for each environment.
+  It uses ejs and HtmlWebpackPlugin to generate a different index.html for each environment.
   htmlWebpackPlugin will dynamically add references to the scripts and styles that it bundles
   to this file. The generated bundles have hash-based filenames,
   so it's necessary to add the references dynamically.
-  For more info on ejs, see http://www.embeddedjs.com/.
-  For examples of using it with htmlWebpackPlugin,
+  For more info on ejs, see https://ejs.co.
+  For examples of using it with HtmlWebpackPlugin,
   see https://github.com/jaketrent/html-webpack-template/blob/master/index.ejs
   -->
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!--
-    The htmlWebpackPlugin will parse the logic below so that trackJS is only added to the production version of index.html (since only webpack.config.prod.js provides the trackJS token)
+    The htmlWebpackPlugin will parse the logic below so that trackJS is only added to the production version of index.html 
+    (since only webpack.config.prod.js provides the trackJS token)
     This is an example of how to add features to index.html for only one environment.
    -->
     <% if (htmlWebpackPlugin.options.trackJSToken) { %>
     <!-- BEGIN TRACKJS -->
-    <script type="text/javascript">window._trackJs = { token: '<%=htmlWebpackPlugin.options.trackJSToken%>' };</script>
-    <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+    <script type="text/javascript">
+      window._trackJs = {
+        token: "<%=htmlWebpackPlugin.options.trackJSToken%>",
+      };
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.trackjs.com/releases/current/tracker.js"
+    ></script>
     <!-- END TRACKJS -->
     <% } %>
-  <meta charset="UTF-8">
-</head>
-<body>
-  <h1>Users</h1>
-  <table>
-    <thead>
-      <th>&nbsp;</th>
-      <th>Id</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-    </thead>
-    <tbody id="users">
-
-    </tbody>
-  </table>
-</body>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h1>Users</h1>
+    <table>
+      <thead>
+        <th>&nbsp;</th>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </thead>
+      <tbody id="users"></tbody>
+    </table>
+  </body>
 </html>
